@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import PasswordChecklist from "react-password-checklist"
 
 function Register (){
 
@@ -81,14 +82,25 @@ function Register (){
                 <input type="text" className="form-control" placeholder="Username" onChange={(e)=>{setuserName(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className="form-control" placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className="form-control" placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
+            <PasswordChecklist
+				        rules={["minLength","specialChar","number","capital","match"]}
+				        minLength={5}
+				        value={password}
+				        valueAgain={confpassword}
+				        onChange={(isValid) => {}}
+			      />
+
+
+
             <div className="text-center ">
                 <input type="submit" value="Register" className="btn btn-success form-control"/>
             </div>
+            
            
         </form>
       </div>
