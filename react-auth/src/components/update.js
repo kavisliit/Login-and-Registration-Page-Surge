@@ -4,6 +4,8 @@ import { Link, useParams,useNavigate } from 'react-router-dom';
 
 
 function Update (props){
+  // const user = (localStorage.getItem("user"))
+  // setTest(user)
 
     const navigate = useNavigate()
 
@@ -12,16 +14,14 @@ function Update (props){
     const [userName, setuserName] = useState("")
     const [password, setpassword] = useState("")
     const [confpassword, setconfpassword] = useState("")
-    const [users, setUsers] = useState([])
     const params = useParams()
-
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("user");
 
     useEffect(() => {
         getData()
         }, [])
-//get data from profile page
+        //get data from profile page
         function getData(){
             axios({
                 method: "get",

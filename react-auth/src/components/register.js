@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register (){
 
+  const navigate = useNavigate()
     const [name, setname] = useState("")
     const [email, setemail] = useState("")
     const [userName, setuserName] = useState("")
@@ -10,21 +12,20 @@ function Register (){
     const [confpassword, setconfpassword] = useState("")
     const [users, setUsers] = useState([])
     useEffect(() => {
-        getData()
+        //getData()
         }, [])
 
-        function getData(){
-            axios
-            .get('http://localhost:8070/user/')
-            .then((res) => {
-             setUsers(res.data)
-             console.log(res.data)
-            })
-            .catch((err) => {
-              alert(err);
-            });
+        // function getData(){
+        //     axios
+        //     .get('http://localhost:8070/user/')
+        //     .then((res) => {
+        //      setUsers(res.data)
+        //     })
+        //     .catch((err) => {
+        //       alert(err);
+        //     });
 
-        }
+        // }
 
 
 
@@ -35,12 +36,12 @@ function Register (){
         //         return (alert("Email is Exsist"))
         //     }
         // })
-        // if (confpassword === password){
+        if (confpassword === password){
 
-        // }
-        // else{
-        //     return (alert("Password Doesn't match"))
-        // }
+        }
+        else{
+            return (alert("Password Doesn't match"))
+        }
         const newUser = {
             name,
             email,
@@ -51,15 +52,17 @@ function Register (){
         axios
           .post('http://localhost:8070/user/signup', newUser)
           .then(() => {
-            alert('User Added');
+            alert('User Create Successfully ');
             setemail('');
             setname('');
             setuserName('');
             setpassword('');
             setconfpassword('');
+            navigate('/login', { replace: true })
           })
           .catch((err) => {
-            //alert(err);
+            alert("Email Already Exists");
+            console.log(err)
           });
       }
 
@@ -69,19 +72,19 @@ function Register (){
           <br></br>
         <form onSubmit={sendData}>
             <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Full Name" onChange={(e)=>{setname(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="text" className="form-control" placeholder="Full Name" onChange={(e)=>{setname(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="email" className="form-control" placeholder="Email" onChange={(e)=>{setemail(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="email" className="form-control" placeholder="Email" onChange={(e)=>{setemail(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Username" onChange={(e)=>{setuserName(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="text" className="form-control" placeholder="Username" onChange={(e)=>{setuserName(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="password" className="form-control" placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="password" className="form-control" placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1" required/>
             </div>
             <div className="text-center ">
                 <input type="submit" value="Register" className="btn btn-success form-control"/>

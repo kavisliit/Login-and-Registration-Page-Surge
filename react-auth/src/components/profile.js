@@ -2,25 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function Profile (){
-    // const user = JSON.parse(localStorage.getItem("user"))
-    const [currentUser, setcurrentUser] = useState("")
+function Profile ({setTest}){
+     const user = (localStorage.getItem("user"))
+     setTest(user)
+     const [currentUser, setcurrentUser] = useState("")
 
-    // useEffect(() => {
-    //     getData()
-    //     }, [])
-
-    // function getData(){
-        // axios
-        // .get("http://localhost:8070/user/get/"+user._id)
-        // .then((res) => {
-        //     setcurrentUser(res.data);
-        // }).catch((err) => {
-        //      alert(err.message);
-        // }) 
-    // }
-        
-    
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("user");
 
@@ -48,10 +34,7 @@ function Profile (){
     
     return(
             <div>
-                {/* <h2>{currentUser.name}</h2>
-                <h2>{currentUser.email}</h2>
-                <h2>{currentUser.userName}</h2>
-                <h2>{currentUser.password}</h2> */}
+    
             <div className="input-group mb-3">
                 <input type="text" className="form-control" placeholder="Full Name" value={currentUser.name}   aria-describedby="basic-addon1" readOnly/>
             </div>

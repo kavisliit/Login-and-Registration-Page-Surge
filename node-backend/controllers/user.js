@@ -6,18 +6,18 @@ const User = require("../models/User");
 
 //add
 exports.signup = async (req, res, next) => {
-  // const errors = validationResult(req);
-  // if (!errors.isEmpty()) {
-  //   const error = new Error("Validation failed.");
-  //   error.statusCode = 422;
-  //   error.data = errors.array();
-  //   throw error;
-  // }
+
   const email = req.body.email;
   const userName = req.body.userName;
   const name = req.body.name;
   const password = req.body.password;
   try {
+    const checkuser = await User.findOne({ email: email });
+    if(checkuser){
+      const error = new Error("Email exsisted");
+      error.statusCode = 500;
+      throw error;
+    }
     const hashedPw = await bcrypt.hash(password, 12);
     const user = new User({
       email: email,
@@ -35,10 +35,11 @@ exports.signup = async (req, res, next) => {
   }
 };
 
+
 //update
 exports.update = async (req, res, next) => {
 
-     let userID = req.params.userId;
+  let userID = req.params.userId;
   const { name, email, userName, password } = req.body;
   const hashedPw = await bcrypt.hash(password, 12);
 
@@ -61,6 +62,8 @@ exports.update = async (req, res, next) => {
     });
 };
 
+
+//get one user 
 exports.getUser = async (req, res, next) => {
   const userId = req.params.userId;
   try {
@@ -80,8 +83,7 @@ exports.getUser = async (req, res, next) => {
 };
 
 
-
-
+//login check validatons
 exports.login = async (req, res, next) => {
     //const email = req.body.email;
     let filter

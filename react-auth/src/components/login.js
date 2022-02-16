@@ -50,7 +50,7 @@ const Login =()=> {
 function sendData(e){
     e.preventDefault();
     const newUser = {
-      userName:userName,
+      //userName:userName,
       email:email,
         password
     };
@@ -58,6 +58,10 @@ function sendData(e){
     axios
       .post('http://localhost:8070/user/login', newUser)
       .then((res) => {
+        if(res.status!==200){
+          console.log(res)
+
+        }
         localStorage.setItem("user",(res.data.userId))
         localStorage.setItem("token", res.data.token)
 
@@ -65,16 +69,12 @@ function sendData(e){
         setUserId(res.data.userId)
         setTest(!test)
 
-  
-
         navigate('/profile', { replace: true })
 
-        // setTimeout(() => {
-        //     window.location.href = '/profile'
-        //     }, 500)
       })
       .catch((err) => {
-        alert(err);
+        alert("Email or Password is worng");
+        console.log(err)
       });
   }
 
@@ -89,10 +89,10 @@ function sendData(e){
         <form onSubmit={sendData}>
 
             <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Username" onChange={(e)=>{setuserName(e.target.value)}} aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="email" className="form-control" placeholder="Email Address" onChange={(e)=>{setemail(e.target.value)}} aria-label="Username" aria-describedby="basic-addon1" required/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Password"  onChange={(e)=>{setpassword(e.target.value)}} aria-label="Password" aria-describedby="basic-addon1"/>
+                <input type="password" className="form-control" placeholder="Password"  onChange={(e)=>{setpassword(e.target.value)}} aria-label="Password" aria-describedby="basic-addon1" required/>
             </div>
             <div className="text-center">
                 <button type="submit"  className="btn btn-primary form-control">Login</button>
