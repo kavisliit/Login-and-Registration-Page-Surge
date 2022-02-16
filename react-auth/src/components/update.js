@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams,useNavigate } from 'react-router-dom';
-
+import PasswordChecklist from "react-password-checklist"
 
 function Update (props){
   // const user = (localStorage.getItem("user"))
@@ -95,15 +95,22 @@ function Update (props){
                 <input type="text" className="form-control" value={userName} placeholder="Username" onChange={(e)=>{setuserName(e.target.value)}}  aria-describedby="basic-addon1"/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" value={password} placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className="form-control" value={password} placeholder="Password" onChange={(e)=>{setpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
             </div>
             <div className="input-group mb-3">
-                <input type="password" className="form-control" value={confpassword} placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className="form-control" value={confpassword} placeholder="Confirm Password" onChange={(e)=>{setconfpassword(e.target.value)}}  aria-describedby="basic-addon1"/>
             </div>
             <div className="text-center ">
                 <input type="submit" value="Update" className="btn btn-success form-control"/>
             </div>
             <br></br>
+            <PasswordChecklist
+				        rules={["minLength","specialChar","number","capital","match"]}
+				        minLength={5}
+				        value={password}
+				        valueAgain={confpassword}
+				        onChange={(isValid) => {}}
+			      />
             <div className="text-center ">
                <Link to="/profile"> <button type="submit" value="Register" className="btn btn-warning form-control">Cancel</button></Link>
             </div>
