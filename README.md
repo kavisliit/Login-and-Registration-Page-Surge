@@ -14,7 +14,12 @@
 - Authentication Email Exsisting, Password Matching and Password encryption
 
 
-## Usage
+## For You
+GitHub Link - https://github.com/pramudnadula/Login-and-Registration-Page-Surge
+<br />
+YouTube Demo - https://youtu.be/jrw_nYg2Z6s
+<br />
+Git Rep - https://github.com/pramudnadula/Login-and-Registration-Page-Surge.gi
 
 ### React and Node Modules in this App
 
