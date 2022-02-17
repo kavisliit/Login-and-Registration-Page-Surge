@@ -7,10 +7,77 @@
 - Loging Page(login & logout)
 - Registration Page
 - profile
-- Authentication Email Exsisting, Password Matching
+- Authentication Email Exsisting, Password Matching and Password encryption
+
+
+## Usage
+
+### React and Node Modules in this App
+
+I use Node Modules in the backend in this project. Be sure to have at least Node v16.13.2.
+
+Also, when importing a file (not a package), be sure to add .js at the end or you will get a "module not found" error
+
+You can also install and setup Babel if you would like
+
+### Node Variables
+
+Alrady Created a .env file in then root and add
+
+```
+PORT = 8070
+MONGODB_URL=mongodb+srv://pramud:DU09WuDjoHvhCef7@cluster0.5nput.mongodb.net/surge?retryWrites=true&w=majority
+```
+
+### Install Dependencies (frontend & backend)
+
+```
+1. cd node-backend
+  npm install
+   
+2. cd ..
+
+3. cd react-auth
+  npm install bootstrap
+  npm install
+```
+
+### Run
+
+```
+# Run backend (:8070)
+npm run dev
+
+# Run frontend (:3000) 
+npm start
+
+```
+
+## Build & Deploy
+
+```
+# Create frontend prod build
+cd frontend
+npm run build
+```
 
 
 
+### Database is MongoDb Atlas
+
+
+
+```
+Sample User Logins
+
+pramudn@gmail.com
+Abcd@123
+
+kamal@gmail.com
+Kamal@123
+```
+
+## I'm a Web Designer,Full Stack Developer and a Tech Geek!!
 - 🎓 I am a Software Engineer undergraduate at Sri Lanka Institute of Information Technology
 - 👨🏻‍💻 I’m currently learning everything 🤣
 - 🥅 2021 Goals: Learn new things and build up my carrier
