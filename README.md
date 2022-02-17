@@ -1,6 +1,10 @@
 ### Hi there, I'm Pramud Nadula 👋
 
-## React Project about Loging Page & Registration Page with Authentication !!!
+## React Project about Loging Page & Registration Page with Authentication !!! 
+<br />
+
+![react all](https://user-images.githubusercontent.com/86596641/154451160-0093eeef-5cc2-4a66-a64d-ce744ab8c377.png)
+
 
 ## Features
 
