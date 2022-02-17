@@ -77,6 +77,21 @@ kamal@gmail.com
 Kamal@123
 ```
 
+# Screenshots of this project
+
+Login Page
+![login](https://user-images.githubusercontent.com/86596641/154448449-370fca83-b495-44be-923a-69d11508ca01.png)
+
+Registration Page
+![registration](https://user-images.githubusercontent.com/86596641/154448930-7b9840f9-4b34-4ad7-bd3d-c254fb58350f.png)
+
+User Profile
+![profile](https://user-images.githubusercontent.com/86596641/154449091-2139e2e0-1672-49c2-af2a-1277fa13d4b0.png)
+
+User Update Profile Page
+![update](https://user-images.githubusercontent.com/86596641/154449196-c4e50182-cd48-44c1-9138-84dcca8ce68c.png)
+
+
 ## I'm a Web Designer,Full Stack Developer and a Tech Geek!!
 - 🎓 I am a Software Engineer undergraduate at Sri Lanka Institute of Information Technology
 - 👨🏻‍💻 I’m currently learning everything 🤣
