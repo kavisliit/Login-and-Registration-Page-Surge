@@ -13,30 +13,15 @@ function Register (){
     const [confpassword, setconfpassword] = useState("")
     const [users, setUsers] = useState([])
     useEffect(() => {
-        //getData()
+        
         }, [])
 
-        // function getData(){
-        //     axios
-        //     .get('http://localhost:8070/user/')
-        //     .then((res) => {
-        //      setUsers(res.data)
-        //     })
-        //     .catch((err) => {
-        //       alert(err);
-        //     });
-
-        // }
 
 
 
     function sendData(e) {
         e.preventDefault();
-        // users.map(el=>{
-        //     if(el.email === email){
-        //         return (alert("Email is Exsist"))
-        //     }
-        // })
+       
         if (confpassword === password){
 
         }

@@ -13,40 +13,7 @@ const Login =()=> {
     const [test, setTest] = useState(false)
     const [userId, setUserId] = useState('')
 
-    console.log(userName);
-    console.log(password);
-
-    // const dataArray = [
-    //     {userName:"aa",password:"gsdgjspogjdspgdsaggdagdg"},
-    //     {userName:"bb",password:"gsdgjspogjdspgdsaggdagdg"}
-    // ]
-
-    // const loginHanlder =()=>{
-    //     dataArray.map(el=>{
-    //         if(el.userName == userName){
-    //             return alert("aa")
-    //         }
-    //     })
-    //     // userName, password
-
-    // }
-
-    // useEffect(() => {
-    //   const token = localStorage.getItem("token");
-    //   try {
-    //     axios({
-    //       method: "get",
-    //       baseURL: `http://localhost:8070/user/getuser/${userId}`,
-    //       headers: {
-    //         Authorization: "Bearer " + token
-    //       },
-    //     })
-    //   } catch (err) {
-    //     throw err;
-    //   }
-    // }, [test])
-    
-
+   
 function sendData(e){
     e.preventDefault();
     const newUser = {

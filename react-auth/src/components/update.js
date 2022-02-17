@@ -4,8 +4,7 @@ import { Link, useParams,useNavigate } from 'react-router-dom';
 import PasswordChecklist from "react-password-checklist"
 
 function Update (props){
-  // const user = (localStorage.getItem("user"))
-  // setTest(user)
+
 
     const navigate = useNavigate()
 
